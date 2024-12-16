@@ -138,9 +138,3 @@ function resetGame() {
 
 moveEnemy();
 movePlayer();
-
-
-
-
-
-
