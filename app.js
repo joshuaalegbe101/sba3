@@ -1,6 +1,7 @@
 const player = document.getElementById("player");
 const gameContainer = document.getElementById("gameContainer")
 const enemy = document.getElementById("alien");
+const textBox = document.querySelector("textBox");
 
 let playerPosition = { x:5, y:5};
 let enemyVelocity = {x:3, y:3};
