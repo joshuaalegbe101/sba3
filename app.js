@@ -35,6 +35,8 @@ function movePlayer() {
 
     player.style.transform = `translate(${playerPosition.x}px, ${playerPosition.y}px)`;
 
+    collisionCheck();
+
     requestAnimationFrame(movePlayer);
 }
 
@@ -70,7 +72,15 @@ function moveEnemy() {
     requestAnimationFrame(moveEnemy)
 }
 
-function collision() {
+function collisionCheck() {
+    const playerRect = player.getBoundingClientRect();
+    const enemyRect = enemy.getBoundingClientRect();
+
+    if(
+        playerRect.left < enemyRect.right && playerRect.right > enemyRect.left && playerRect.top < enemyRect.bottom && playerRect.bottom > enemyRect.top) {
+            window.prompt("Game Over! Press Enter to restart.")
+            window.location.reload();
+        }
     
 }
 moveEnemy();
