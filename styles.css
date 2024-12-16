@@ -45,5 +45,7 @@ p{
 
 #goal {
     background-image:url("goal.png");
-    align-content:end;
+    position:absolute;
+    bottom:0;
+    right:0;
 }

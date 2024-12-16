@@ -5,7 +5,7 @@ const textDisplay = document.querySelector("#textBox p");
 const goal = document.querySelector("goal");
 
 let playerPosition = { x:5, y:5};
-let enemyVelocity = {x:3, y:3};
+let enemyVelocity = {x:13, y:13};
 let enemyPosition = {x :15, y:100};
 let playerHealth = 3;
 
@@ -114,6 +114,11 @@ function gameWon() {
 function resetGame() {
     playerPosition = {x: 10, y:10};
     enemyPosition = {x: 15, y:100 };
+    player.style.transform = `translate(${playerPosition.x}px, ${playerPosition.y}px)`;
+    enemy.style.transform = `translate(${enemyPosition.x}px, ${enemyPosition.y}px)`;
+
+    const textDisplay = document.querySelector("#textDisplay");
+    textDisplay.innerHTML = "<p>Get to the Flag</p>";
 }
 
 moveEnemy();
