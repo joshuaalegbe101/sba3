@@ -93,6 +93,22 @@ function collisionCheck() {
         window.location.reload();
     }
 }
+
+function checkGoal() {
+    const playerBounds = player.getBoundingClientRect();
+    const goalBounds = document.getElementById("goal").getBoundingClientRect();
+
+    if (
+        playerBounds.right > goalBounds.left &&
+        playerBounds.left < goalBounds.right &&
+        playerBounds.bottom > goalBounds.top &&
+        playerBounds.top < goalBounds.bottom
+    ) {
+        alert("You Win! You reached the goal!");
+        resetGame();
+    }
+}
+
 moveEnemy();
 movePlayer();
 
@@ -100,23 +116,4 @@ movePlayer();
 
 
 
-
-/*
-selectElementByID()
-querySelector()
-
-createElement()
-
-appendChild() || prependChild()
-
-innerHTML, innerText, textContent
-
-addEventListener()
-
-addEventListener()
-
-BOM
-
-BOM 
-*/
 
