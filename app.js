@@ -13,6 +13,8 @@ const keysPressed = new Set();
 document.addEventListener("keydown", (evt) => keysPressed.add(evt.key.toLowerCase()));
 document.addEventListener("keyup", (evt) => keysPressed.delete(evt.key.toLowerCase()));
 
+window.focus();
+
 function movePlayer() {
     const containerStyle = getComputedStyle(gameContainer);
     const borderWidth = parseInt(containerStyle.borderWidth) || 0;
@@ -120,6 +122,7 @@ function gameWon() {
 
     document.querySelector("#textDisplay").appendChild(newElement);
     alert("You Win!");
+    window.console.log("Easter egg");
     resetGame();
 }
 
