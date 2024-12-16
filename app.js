@@ -7,7 +7,6 @@ const goal = document.querySelector("goal");
 let playerPosition = { x:5, y:5};
 let enemyVelocity = {x:13, y:13};
 let enemyPosition = {x :15, y:100};
-let playerHealth = 3;
 
 const keysPressed = new Set();
 
@@ -78,13 +77,11 @@ function moveEnemy() {
 function collisionCheck() {
     const playerRect = player.getBoundingClientRect();
     const enemyRect = enemy.getBoundingClientRect();
-    const goalRect = goal.getBoundingClientRect();
 
     if (playerRect.left < enemyRect.right && playerRect.right > enemyRect.left && playerRect.top < enemyRect.bottom && playerRect.bottom > enemyRect.top) {
         gameOver();
     }
 
-    if(player)
 }
 
 function gameOver() {
