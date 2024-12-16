@@ -78,12 +78,13 @@ function moveEnemy() {
 function collisionCheck() {
     const playerRect = player.getBoundingClientRect();
     const enemyRect = enemy.getBoundingClientRect();
+    const goalRect = goal.getBoundingClientRect();
 
     if (playerRect.left < enemyRect.right && playerRect.right > enemyRect.left && playerRect.top < enemyRect.bottom && playerRect.bottom > enemyRect.top) {
         gameOver();
     }
 
-    if
+    if(player)
 }
 
 function gameOver() {
