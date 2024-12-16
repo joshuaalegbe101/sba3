@@ -84,6 +84,8 @@ function collisionCheck() {
             textDisplay.textContent = "Game Over! You hit the alien.";
 
             const newElement = document.createElemenet("h2");
+            newElement.textContent = "Better luck next time.";
+            
             window.prompt("Game Over! Press OK to restart.")
             window.location.reload();
         }
