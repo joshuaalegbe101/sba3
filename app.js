@@ -82,6 +82,8 @@ function collisionCheck() {
     if (playerRect.left < enemyRect.right && playerRect.right > enemyRect.left && playerRect.top < enemyRect.bottom && playerRect.bottom > enemyRect.top) {
         gameOver();
     }
+
+    if
 }
 
 function gameOver() {
