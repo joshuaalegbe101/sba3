@@ -1,11 +1,12 @@
 const player = document.getElementById("player");
 const gameContainer = document.getElementById("gameContainer")
 const enemy = document.getElementById("alien");
-const textBox = document.querySelector("textBox");
+const textDisplay = document.querySelector("#textBox p");
 
 let playerPosition = { x:5, y:5};
 let enemyVelocity = {x:3, y:3};
 let enemyPosition = {x :15, y:100};
+let playerHealth = 3;
 
 const keysPressed = new Set();
 
@@ -79,7 +80,11 @@ function collisionCheck() {
 
     if(
         playerRect.left < enemyRect.right && playerRect.right > enemyRect.left && playerRect.top < enemyRect.bottom && playerRect.bottom > enemyRect.top) {
-            window.prompt("Game Over! Press Enter to restart.")
+            document.querySelector("#textDisplay").style.backgroundColor = "red";
+            textDisplay.textContent = "Game Over! You hit the alien.";
+
+            const newElement = document.createElemenet("h2");
+            window.prompt("Game Over! Press OK to restart.")
             window.location.reload();
         }
     
