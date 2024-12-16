@@ -4,15 +4,17 @@ body{
 
 #gameContainer{
     margin-top:70px;
-    width:100%;
+    width:800px;
     height:700px;
     border:solid burlywood;
     display:grid;
     background-color:whitesmoke;
+    position:relative;
+    overflow:hidden;
 }
 
 
-#player, #enemy, #goal {
+#player, #alien, #goal {
     width:50px;
     height:50px;
 }
@@ -21,8 +23,9 @@ body{
     background-image:url("player.png");
 }
 
-#enemy {
+#alien {
     background-image:url("alien.png");
+    position:absolute;
 }
 
 #goal {
