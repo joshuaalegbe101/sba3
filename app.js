@@ -77,10 +77,23 @@ function moveEnemy() {
 function collisionCheck() {
     const playerRect = player.getBoundingClientRect();
     const enemyRect = enemy.getBoundingClientRect();
+    const goalRect = goal.getBoundingClientRect();
 
-    if (playerRect.left < enemyRect.right && playerRect.right > enemyRect.left && playerRect.top < enemyRect.bottom && playerRect.bottom > enemyRect.top) {
+    if (playerRect.left < enemyRect.right &&
+        playerRect.right > enemyRect.left &&
+        playerRect.top < enemyRect.bottom &&
+        playerRect.bottom > enemyRect.top
+) {
         gameOver();
     }
+
+    if( playerRect.left < goalRect.right &&
+        playerRect.right > goalRect.left &&
+        playerRect.top < goalRect.bottom &&
+        playerRect.bottom > goalRect.top
+) {
+    gameWon();
+}
 
 }
 
@@ -94,8 +107,7 @@ function gameOver() {
     newElement.style.marginTop = "10px";
 
     document.querySelector("#textDisplay").appendChild(newElement);
-    window.prompt("Game Over! Press OK to restart.");
-    window.location.reload();
+    resetGame();
 }
 
 function gameWon() {
