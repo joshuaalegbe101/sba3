@@ -2,6 +2,7 @@ const player = document.getElementById("player");
 const gameContainer = document.getElementById("gameContainer")
 const enemy = document.getElementById("alien");
 const textDisplay = document.querySelector("#textBox p");
+const goal = document.querySelector("goal");
 
 let playerPosition = { x:5, y:5};
 let enemyVelocity = {x:3, y:3};
@@ -78,22 +79,32 @@ function collisionCheck() {
     const playerRect = player.getBoundingClientRect();
     const enemyRect = enemy.getBoundingClientRect();
 
-    if (
-        playerRect.left < enemyRect.right && playerRect.right > enemyRect.left && playerRect.top < enemyRect.bottom && playerRect.bottom > enemyRect.top) {
-        const textDisplay = document.querySelector("#textDisplay p");
-        textDisplay.textContent = "Game Over! You hit an enemy!";
-
-        const newElement = document.createElement("h2");
-        newElement.textContent = "Better luck next time!";
-        newElement.style.color = "White";
-        newElement.style.marginTop = "10px";
-
-        document.querySelector("#textDisplay").appendChild(newElement);
-        window.prompt("Game Over! Press OK to restart.");
-        window.location.reload();
+    if (playerRect.left < enemyRect.right && playerRect.right > enemyRect.left && playerRect.top < enemyRect.bottom && playerRect.bottom > enemyRect.top) {
+        gameOver();
     }
 }
 
+function gameOver() {
+    const textDisplay = document.querySelector("#textDisplay p");
+    textDisplay.textContent = "Game Over! You hit an enemy!";
+
+    const newElement = document.createElement("h2");
+    newElement.textContent = "Better luck next time!";
+    newElement.style.color = "White";
+    newElement.style.marginTop = "10px";
+
+    document.querySelector("#textDisplay").appendChild(newElement);
+    window.prompt("Game Over! Press OK to restart.");
+    window.location.reload();
+}
+
+function gameWon() {
+    const textDisplay = document.querySelector("#textDips")
+}
+
+function reset() {
+
+}
 
 moveEnemy();
 movePlayer();
