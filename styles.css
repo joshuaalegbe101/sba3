@@ -11,16 +11,14 @@
     height:50px;
 }
   
-
 #player {
-    background-color:green;
+    background-image:url("player.png");
 }
 
 #enemy {
-    background-color:red;
-    ;
+    background-image:url("alien.png");
 }
 
 #goal {
-    background-color:gold;
+    background-image:url("goal.png");
 }
