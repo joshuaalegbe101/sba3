@@ -6,28 +6,37 @@ let playerPosition = { x:5, y:5};
 let enemyVelocity = {x:3, y:3};
 let enemyPosition = {x :15, y:100};
 
+const keysPressed = new Set();
 
-document.addEventListener("keydown", (evt) => {
-    switch(evt.key.toLowerCase()) {
-        case "w":
-                playerPosition.y -= 20;
-            break;
+document.addEventListener("keydown", (evt) => keysPressed.add(evt.key.toLowerCase()));
+document.addEventListener("keyup", (evt) => keysPressed.delete(evt.key.toLowerCase()));
 
-        case "s":
-                playerPosition.y += 20;
-            break;
+function movePlayer() {
+    const containerStyle = getComputedStyle(gameContainer);
+    const borderWidth = parseInt(containerStyle.borderWidth) || 0;
+    const containerWidth = gameContainer.offsetWidth - borderWidth *2;
+    const containerHeight = gameContainer.offsetHeight - borderWidth *2;
 
-        case "a":
-                playerPosition.x -= 20;
-            break;
+    const speed = 4;
 
-        case "d":
-                playerPosition.x += 20;
-            break;
-        }
+    if(keysPressed.has("w")) playerPosition.y -= speed;
+    if(keysPressed.has("s")) playerPosition.y += speed;
+    if(keysPressed.has("a")) playerPosition.x -= speed;
+    if(keysPressed.has("d")) playerPosition.x += speed;
+
+    if (playerPosition.x < 0) playerPosition.x = 0;
+    if (playerPosition.y < 0) playerPosition.y = 0;
+    if (playerPosition.x + player.offsetWidth > containerWidth) {
+        playerPosition.x = containerWidth - player.offsetWidth;
+    }
+    if (playerPosition.y + player.offsetHeight > containerHeight) {
+        playerPosition.y = containerHeight - player.offsetHeight;
+    }
+
     player.style.transform = `translate(${playerPosition.x}px, ${playerPosition.y}px)`;
 
-});
+    requestAnimationFrame(movePlayer);
+}
 
 function moveEnemy() {
     const containerStyle = getComputedStyle(gameContainer);
@@ -61,8 +70,9 @@ function moveEnemy() {
     requestAnimationFrame(moveEnemy)
 }
 
-moveEnemy();
 
+moveEnemy();
+movePlayer();
 
 
 
