@@ -1,9 +1,10 @@
 const player = document.getElementById("player");
-const gameContainner = document.getElementById("gameContainer")
+const gameContainer = document.getElementById("gameContainer")
 const enemy = document.getElementById("enemy");
 
-let playerPosition = { x:50, y:50};
+let playerPosition = { x:5, y:5};
 let enemyVelocity = {x:3, y:3};
+let enemyPosition = {x :150, y:170};
 
 
 document.addEventListener("keydown", (evt) => {
@@ -46,6 +47,7 @@ function moveEnemy() {
     requestAnimationFrame(moveEnemy)
 }
 
+moveEnemy();
 
 
 
