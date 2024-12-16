@@ -2,8 +2,8 @@ const player = document.getElementById("player");
 const gameContainer = document.getElementById("gameContainer")
 const enemy = document.getElementById("alien");
 const textDisplay = document.querySelector("#textBox p");
-const goal = document.querySelector("goal");
 
+let goalPosition = {x:200, y:200};
 let playerPosition = { x:5, y:5};
 let enemyVelocity = {x:13, y:13};
 let enemyPosition = {x :15, y:100};
