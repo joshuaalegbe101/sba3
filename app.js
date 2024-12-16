@@ -85,9 +85,9 @@ function collisionCheck() {
 
             const newElement = document.createElemenet("h2");
             newElement.textContent = "Better luck next time.";
-            
-            window.prompt("Game Over! Press OK to restart.")
-            window.location.reload();
+            newElement.style.color = "White";
+            //window.prompt("Enter your name to save to leaderboards.");
+            //window.location.reload();
         }
     
 }
