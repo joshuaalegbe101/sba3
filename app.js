@@ -78,18 +78,20 @@ function collisionCheck() {
     const playerRect = player.getBoundingClientRect();
     const enemyRect = enemy.getBoundingClientRect();
 
-    if(
+    if (
         playerRect.left < enemyRect.right && playerRect.right > enemyRect.left && playerRect.top < enemyRect.bottom && playerRect.bottom > enemyRect.top) {
-            document.querySelector("#textDisplay").style.backgroundColor = "red";
-            textDisplay.textContent = "Game Over! You hit the alien.";
+        const textDisplay = document.querySelector("#textDisplay p");
+        textDisplay.textContent = "Game Over! You hit an enemy!";
 
-            const newElement = document.createElemenet("h2");
-            newElement.textContent = "Better luck next time.";
-            newElement.style.color = "White";
-            //window.prompt("Enter your name to save to leaderboards.");
-            //window.location.reload();
-        }
-    
+        const newElement = document.createElement("h2");
+        newElement.textContent = "Better luck next time!";
+        newElement.style.color = "White";
+        newElement.style.marginTop = "10px";
+
+        document.querySelector("#textDisplay").appendChild(newElement);
+        window.prompt("Game Over! Press OK to restart.");
+        window.location.reload();
+    }
 }
 moveEnemy();
 movePlayer();
