@@ -99,11 +99,21 @@ function gameOver() {
 }
 
 function gameWon() {
-    const textDisplay = document.querySelector("#textDips")
+    const textDisplay = document.querySelector("#textDisplay p");
+    textDisplay.textContent = "You Win!";
+
+    const newElement = document.createElement("h2");
+    newElement.textContent = "Congratulations!";
+    newElement.style.color = "gold";
+
+    document.querySelector("#textDisplay").appendChild(newElement);
+    alert("You Win!");
+    resetGame();
 }
 
-function reset() {
-
+function resetGame() {
+    playerPosition = {x: 10, y:10};
+    enemyPosition = {x: 15, y:100 };
 }
 
 moveEnemy();
