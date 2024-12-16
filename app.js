@@ -70,7 +70,9 @@ function moveEnemy() {
     requestAnimationFrame(moveEnemy)
 }
 
-
+function collision() {
+    
+}
 moveEnemy();
 movePlayer();
 
